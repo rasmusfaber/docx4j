@@ -20,9 +20,6 @@
 
 package org.docx4j.convert.out.common;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-
 import org.docx4j.XmlUtils;
 import org.docx4j.jaxb.Context;
 import org.docx4j.model.styles.StyleUtil;
@@ -45,6 +42,9 @@ import org.w3c.dom.DocumentFragment;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.traversal.NodeIterator;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 /** 
  * This class contains common static functions, that get called from the PDF and HTML xsl-transformations. 
@@ -74,7 +74,7 @@ public class XsltCommonFunctions {
     		if (n!=null) {
     			try {
         			Unmarshaller u = Context.jc.createUnmarshaller();			
-        			u.setEventHandler(new org.docx4j.jaxb.JaxbValidationEventHandler());
+        			//u.setEventHandler(new org.docx4j.jaxb.JaxbValidationEventHandler());
         			Object jaxb = u.unmarshal(n);
     				pPr =  (PPr)jaxb;
     			} catch (ClassCastException e) {
@@ -91,7 +91,7 @@ public class XsltCommonFunctions {
     		if (n!=null) {
     			try {
         			Unmarshaller u = Context.jc.createUnmarshaller();			
-        			u.setEventHandler(new org.docx4j.jaxb.JaxbValidationEventHandler());
+        			//u.setEventHandler(new org.docx4j.jaxb.JaxbValidationEventHandler());
         			Object jaxb = u.unmarshal(n);
     				//rPr =  (RPr)jaxb;
     				
@@ -124,7 +124,7 @@ public class XsltCommonFunctions {
     		if (n!=null) {
     			try {
         			Unmarshaller u = Context.jc.createUnmarshaller();			
-        			u.setEventHandler(new org.docx4j.jaxb.JaxbValidationEventHandler());
+        			//u.setEventHandler(new org.docx4j.jaxb.JaxbValidationEventHandler());
         			Object jaxb = u.unmarshal(n);
     				text =  (Text)jaxb;
     			} catch (ClassCastException e) {

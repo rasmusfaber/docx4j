@@ -10,7 +10,7 @@
   
 	<groupId>org.docx4j</groupId>
 	<artifactId>docx4j</artifactId>
-	<version>3.2.3-SNAPSHOT</version>
+	<version>3.2.3.5-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>docx4j</name>
 	<description>
@@ -584,7 +584,7 @@
 	<dependency>
 		<groupId>xalan</groupId>
 		<artifactId>xalan</artifactId>
-		<version>2.7.1</version>
+		<version>2.7.2.4-conscius-SNAPSHOT</version>
 		<exclusions>
 			<exclusion>
 				<groupId>xml-apis</groupId>
@@ -656,15 +656,20 @@
 			<version>4.8</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.codehaus.woodstox</groupId>
+            <artifactId>woodstox-core-asl</artifactId>
+            <version>4.1.4</version>
+        </dependency>
 
-<!-- Uncomment for load/save via JCR, which
-		may be found in docx4j-extras.
-		<dependency>
-			<groupId>javax.jcr</groupId>
-			<artifactId>jcr</artifactId>
-			<version>1.0</version>
-		</dependency>
-		-->
+        <!-- Uncomment for load/save via JCR, which
+                may be found in docx4j-extras.
+                <dependency>
+                    <groupId>javax.jcr</groupId>
+                    <artifactId>jcr</artifactId>
+                    <version>1.0</version>
+                </dependency>
+                -->
 
 
 <!--	Uncomment for the PDF conversion via HTML or iText, which

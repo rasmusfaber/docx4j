@@ -19,9 +19,6 @@
  */
 package org.docx4j.convert.out.common;
 
-import java.util.Set;
-import java.util.TreeSet;
-
 import org.docx4j.convert.out.ConversionFeatures;
 import org.docx4j.convert.out.common.preprocess.BookmarkMover;
 import org.docx4j.convert.out.common.preprocess.Containerization;
@@ -42,6 +39,9 @@ import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.openpackaging.parts.relationships.Namespaces;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Set;
+import java.util.TreeSet;
 
 /** This class manages the preprocessing functionality for the conversion.<br>
  *  It contains two methods that get called from the conversions:
@@ -76,7 +76,10 @@ public class Preprocess extends ConversionFeatures {
 		if (features.contains(PP_COMMON_DEEP_COPY)) {
 			ret = PartialDeepCopy.process(opcPackage, relationshipTypes);
 			if (ret instanceof WordprocessingMLPackage) {
-				log.debug("Results of PP_COMMON_DEEP_COPY: " + ((WordprocessingMLPackage)ret).getMainDocumentPart().getXML());
+                if(log.isDebugEnabled()) {
+                    log.debug("Results of PP_COMMON_DEEP_COPY: " + ((WordprocessingMLPackage) ret).getMainDocumentPart().getXML());
+
+                }
 			}
 		}
 		return ret;
@@ -186,8 +189,9 @@ public class Preprocess extends ConversionFeatures {
 //			log.debug(ret.getMainDocumentPart().getXML());
 		}
 
-		
-		log.debug("Results of preprocessing: " + ret.getMainDocumentPart().getXML());
+		if(log.isDebugEnabled()) {
+            log.debug("Results of preprocessing: " + ret.getMainDocumentPart().getXML());
+        }
 		
 		new EventFinished(startEvent).publish();
 		
